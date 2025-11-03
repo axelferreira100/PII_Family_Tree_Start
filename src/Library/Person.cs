@@ -24,6 +24,12 @@ public class Person
         get { return this._children.AsReadOnly(); }
     }
 
+    public Person(string name, int age)
+    {
+        this.Name = name;
+        this.Age = age;
+    }
+
     public void AddChildren(Person person)
     {
         this._children.Add(person);
