@@ -10,6 +10,7 @@ public class Node
 
     public int Number {
         get { return this._number; }
+        private set { this._number = value; }
     }
 
     public ReadOnlyCollection<Node> Children {
@@ -18,7 +19,7 @@ public class Node
 
     public Node(int number)
     {
-        this._number = number;
+        this.Number = number;
     }
 
     public void AddChildren(Node node)
