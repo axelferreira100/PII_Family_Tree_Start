@@ -5,7 +5,7 @@ namespace Library;
 public class Person
 {
     private string _name;
-    private int _age, _number;
+    private int _age;
     private List<Person> children = new List<Person>();
 
     public string Name
@@ -18,11 +18,6 @@ public class Person
     {
         get { return this._age; }
         private set { this._age = value; }
-    }
-    
-    public int Number {
-        get { return this._number; }
-        private set { this._number = value; }
     }
     
     public ReadOnlyCollection<Person> Children {
