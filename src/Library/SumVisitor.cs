@@ -2,16 +2,27 @@ namespace Library;
 
 public class SumVisitor : IVisitor
 {
-    private int _sum = 0;
+    private int _numberSum = 0, _ageSum = 0;
 
-    public int Sum
+    public int NumberSum
     {
-        get { return this._sum; }
-        private set { this._sum = value; }
+        get { return this._numberSum; }
+        private set { this._numberSum = value; }
+    }
+
+    public int AgeSum
+    {
+        get { return this._ageSum; }
+        private set { this._ageSum = value; }
     }
 
     public void Visit(Node node)
     {
-        this.Sum += node.Number;
+        this.NumberSum += node.Number;
+    }
+
+    public void Visit(Person person)
+    {
+        this.AgeSum += person.Age;
     }
 }

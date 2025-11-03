@@ -34,4 +34,14 @@ public class Person
     {
         this._children.Add(person);
     }
+    
+    public void Accept(IVisitor visitor)
+    {
+        visitor.Visit(this);
+        
+        foreach (var item in this._children)
+        {
+            item.Accept(visitor);
+        }
+    }
 }
