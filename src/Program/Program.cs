@@ -28,6 +28,25 @@ namespace Program
             SumVisitor visitor = new SumVisitor();
             n1.Accept(visitor);
             Console.WriteLine(visitor.Sum);
+
+
+            Person p1 = new Person("p1", 80);
+            Person p2 = new Person("p2", 58);
+            Person p3 = new Person("p3", 55);
+            Person p4 = new Person("p4", 22);
+            Person p5 = new Person("p5", 18);
+            Person p6 = new Person("p6", 20);
+            Person p7 = new Person("p7", 19);
+            
+            p1.AddChildren(p2);
+            p1.AddChildren(p3);
+
+            p2.AddChildren(p4);
+            p2.AddChildren(p5);
+
+            p3.AddChildren(p6);
+            p3.AddChildren(p7);
+            
         }
     }
 }
