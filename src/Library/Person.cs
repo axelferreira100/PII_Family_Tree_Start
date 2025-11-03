@@ -6,7 +6,7 @@ public class Person
 {
     private string _name;
     private int _age;
-    private List<Person> children = new List<Person>();
+    private List<Person> _children = new List<Person>();
 
     public string Name
     {
@@ -21,6 +21,11 @@ public class Person
     }
     
     public ReadOnlyCollection<Person> Children {
-        get { return this.children.AsReadOnly(); }
+        get { return this._children.AsReadOnly(); }
+    }
+
+    public void AddChildren(Person person)
+    {
+        this._children.Add(person);
     }
 }

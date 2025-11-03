@@ -5,32 +5,32 @@ using System.Collections.ObjectModel;
 
 public class Node
 {
-    private int number;
-    private List<Node> children = new List<Node>();
+    private int _number;
+    private List<Node> _children = new List<Node>();
 
     public int Number {
-        get { return this.number; }
+        get { return this._number; }
     }
 
     public ReadOnlyCollection<Node> Children {
-        get { return this.children.AsReadOnly(); }
+        get { return this._children.AsReadOnly(); }
     }
 
     public Node(int number)
     {
-        this.number = number;
+        this._number = number;
     }
 
-    public void AddChildren(Node n)
+    public void AddChildren(Node node)
     {
-        this.children.Add(n);
+        this._children.Add(node);
     }
     
     public void Accept(IVisitor visitor)
     {
         visitor.Visit(this);
         
-        foreach (var item in this.children)
+        foreach (var item in this._children)
         {
             item.Accept(visitor);
         }
