@@ -1,6 +1,6 @@
 namespace Library;
 
-public class SumVisitor: IVisitor
+public class SumVisitor : IVisitor
 {
     private int _sum = 0;
 
