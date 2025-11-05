@@ -49,6 +49,10 @@ namespace Program
             AgeSumVisitor visitor2 = new AgeSumVisitor();
             p1.Accept(visitor2);
             Console.WriteLine(visitor2.Sum);
+
+            OldestChildVisitor visitor3 = new OldestChildVisitor();
+            p1.Accept(visitor3);
+            Console.WriteLine(visitor3.OldestChildAge);
         }
     }
 }
