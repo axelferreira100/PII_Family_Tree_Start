@@ -1,6 +1,7 @@
 namespace Library;
 
-public interface IVisitor
+public interface IVisitor<T>
 {
-    void Visit(Node node);
+    int Sum { get; }
+    void Visit(T node);
 }
