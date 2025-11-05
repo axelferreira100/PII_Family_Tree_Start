@@ -7,14 +7,22 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            Node n1 = new Node(1);
-            Node n2 = new Node(2);
-            Node n3 = new Node(3);
-            Node n4 = new Node(4);
-            Node n5 = new Node(5);
-            Node n6 = new Node(6);
-            Node n7 = new Node(7);
-
+            Person p1 = new Person("Abuelo", 80);
+            Person p2 = new Person("Padre", 58);
+            Person p3 = new Person("Madre", 55);
+            Person p4 = new Person("Nieto", 22);
+            Person p5 = new Person("Nieto Pedro", 18);
+            Person p6 = new Person("p6", 20);
+            Person p7 = new Person("p7", 19);
+            
+            Node<Person> n1 = new Node<Person>(p1);
+            Node<Person> n2 = new Node<Person>(p2);
+            Node<Person> n3 = new Node<Person>(p3);
+            Node<Person> n4 = new Node<Person>(p4);
+            Node<Person> n5 = new Node<Person>(p5);
+            Node<Person> n6 = new Node<Person>(p6);
+            Node<Person> n7 = new Node<Person>(p7);
+            
             n1.AddChildren(n2);
             n1.AddChildren(n3);
 
@@ -23,32 +31,18 @@ namespace Program
 
             n3.AddChildren(n6);
             n3.AddChildren(n7);
-
-            // visitar el árbol aquí
-            NodeSumVisitor visitor = new NodeSumVisitor();
-            n1.Accept(visitor);
-            Console.WriteLine(visitor.Sum);
             
-            Person p1 = new Person("p1", 80);
-            Person p2 = new Person("p2", 58);
-            Person p3 = new Person("p3", 55);
-            Person p4 = new Person("p4", 22);
-            Person p5 = new Person("p5", 18);
-            Person p6 = new Person("p6", 20);
-            Person p7 = new Person("p7", 19);
-            
-            p1.AddChildren(p2);
-            p1.AddChildren(p3);
-
-            p2.AddChildren(p4);
-            p2.AddChildren(p5);
-
-            p3.AddChildren(p6);
-            p3.AddChildren(p7);
-
             AgeSumVisitor visitor2 = new AgeSumVisitor();
-            p1.Accept(visitor2);
+            n1.Accept(visitor2, false);
             Console.WriteLine(visitor2.Sum);
+
+            OldestChildVisitor visitor3 = new OldestChildVisitor();
+            n1.Accept(visitor3, true);
+            Console.WriteLine(visitor3.OldestChildAge);
+
+            LargestNameVisitor visitor4 = new LargestNameVisitor();
+            n1.Accept(visitor4, false);
+            Console.WriteLine(visitor4.LargestName);
         }
     }
 }
