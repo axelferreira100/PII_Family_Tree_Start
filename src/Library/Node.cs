@@ -3,35 +3,36 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-public class Node
+public class Node<T>
 {
-    private int _number;
-    private List<Node> _children = new List<Node>();
+    private T _value;
+    private List<Node<T>> _children = new List<Node<T>>();
 
-    public int Number {
-        get { return this._number; }
-        private set { this._number = value; }
+    public T Value
+    {
+        get { return this._value; }
+        private set { this._value = value; }
     }
 
-    public ReadOnlyCollection<Node> Children {
+    public ReadOnlyCollection<Node<T>> Children {
         get { return this._children.AsReadOnly(); }
     }
-
-    public Node(int number)
+    
+    public Node(T value)
     {
-        this.Number = number;
+        this.Value = value;
     }
 
-    public void AddChildren(Node node)
+    public void AddChildren(Node<T> node)
     {
         this._children.Add(node);
     }
     
-    public void Accept(IVisitor<Node> visitor)
+    public void Accept(IVisitor<T> visitor)
     {
-        visitor.Visit(this);
+        visitor.Visit(this.Value);
         
-        foreach (var item in this._children)
+        foreach (Node<T> item in this._children)
         {
             item.Accept(visitor);
         }

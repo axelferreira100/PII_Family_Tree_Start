@@ -1,6 +1,6 @@
 namespace Library;
 
-public class NodeSumVisitor : IVisitor<Node>
+public class NodeSumVisitor : IVisitor<Person>
 {
     private int _sum = 0;
 
@@ -10,8 +10,8 @@ public class NodeSumVisitor : IVisitor<Node>
         private set { this._sum = value; }
     }
 
-    public void Visit(Node node)
+    public void Visit(Person person)
     {
-        this.Sum += node.Number;
+        this.Sum += person.Age;
     }
 }

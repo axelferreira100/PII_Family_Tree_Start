@@ -12,14 +12,7 @@ public class OldestChildVisitor : IVisitor<Person>
 
     public void Visit(Person person)
     {
-        if (person.Children.Count != 0)
-        {
-            foreach (Person child in person.Children)
-            {
-                this.Visit(child);
-            }
-        }
-        else if (person.Age > this.OldestChildAge)
+        if (person.Age > this.OldestChildAge)
         {
             this.OldestChildAge = person.Age;
         }
