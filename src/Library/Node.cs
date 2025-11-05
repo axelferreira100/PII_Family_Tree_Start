@@ -27,7 +27,7 @@ public class Node
         this._children.Add(node);
     }
     
-    public void Accept(IVisitor visitor)
+    public void Accept(IVisitor<Node> visitor)
     {
         visitor.Visit(this);
         

@@ -35,7 +35,7 @@ public class Person
         this._children.Add(person);
     }
     
-    public void Accept(IVisitor visitor)
+    public void Accept(IVisitor<Person> visitor)
     {
         visitor.Visit(this);
         

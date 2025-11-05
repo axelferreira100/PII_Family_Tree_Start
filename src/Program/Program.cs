@@ -25,9 +25,9 @@ namespace Program
             n3.AddChildren(n7);
 
             // visitar el árbol aquí
-            SumVisitor visitor = new SumVisitor();
+            NodeSumVisitor visitor = new NodeSumVisitor();
             n1.Accept(visitor);
-            Console.WriteLine(visitor.NumberSum);
+            Console.WriteLine(visitor.Sum);
             
             Person p1 = new Person("p1", 80);
             Person p2 = new Person("p2", 58);
@@ -46,9 +46,9 @@ namespace Program
             p3.AddChildren(p6);
             p3.AddChildren(p7);
 
-            SumVisitor visitor2 = new SumVisitor();
+            AgeSumVisitor visitor2 = new AgeSumVisitor();
             p1.Accept(visitor2);
-            Console.WriteLine(visitor2.AgeSum);
+            Console.WriteLine(visitor2.Sum);
         }
     }
 }
