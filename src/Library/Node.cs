@@ -28,13 +28,28 @@ public class Node<T>
         this._children.Add(node);
     }
     
-    public void Accept(IVisitor<T> visitor)
+    private bool IsLeaf()
     {
-        visitor.Visit(this.Value);
+        return this.Children.Count == 0;
+    }
+    
+    public void Accept(IVisitor<T> visitor, bool withOnlyLeaves)
+    {
+        if (withOnlyLeaves)
+        {
+            if (this.IsLeaf())
+            {
+                visitor.Visit(this.Value);
+            }
+        }
+        else
+        {
+            visitor.Visit(this.Value);
+        }
         
         foreach (Node<T> item in this._children)
         {
-            item.Accept(visitor);
+            item.Accept(visitor, withOnlyLeaves);
         }
     }
 }
